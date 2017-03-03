@@ -18,18 +18,30 @@ public class Menue extends Application {
         primaryStage.setTitle("Snake");
         Button btn = new Button();
         btn.setText("Start");
-      
-//        Aktion für den Button setzen 
+        Button btn1 = new Button();
+        btn1.setText("Exit");
+        btn.setTranslateY(-30);
+        btn.setMinWidth(100);
+        btn1.setMinWidth(100);
         
-//        btn.setOnAction(new EventHandler<ActionEvent>() {
-//        	@Override
-//            public void handle(ActionEvent event) {
-//                System.out.println("Hello World!");
-//            }
-//        });
+       
+        
+      
+//        Aktion fÃ¼r den Button setzen 
+        
+        
+        btn1.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+            public void handle(ActionEvent event) {
+                System.exit(0);
+            }
+        });
+        
+        
         
         StackPane root = new StackPane();
         root.getChildren().add(btn);
+        root.getChildren().add(btn1);
         primaryStage.setScene(new Scene(root, 300, 250));
         primaryStage.show();
     }
