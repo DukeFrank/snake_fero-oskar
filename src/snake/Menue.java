@@ -28,6 +28,13 @@ public class Menue extends Application {
         
       
 //        Aktion für den Button setzen 
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+        	@Override
+            public void handle(ActionEvent event) {
+                Feld f = new Feld();
+               // f.main(null);
+            }
+        });
         
         
         btn1.setOnAction(new EventHandler<ActionEvent>() {
