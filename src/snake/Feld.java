@@ -3,8 +3,11 @@ package snake;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 //import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
@@ -30,10 +33,20 @@ public class Feld extends Application {
 	        primaryStage.show();
 	        primaryStage.setResizable(false);
 	        
+	        
 	}
 	
 	public Pane game(){
 		Pane pane = new Pane();
+		int snakeParts = 3;
+		int xPos = 0;
+		int yPos = 0;
+		
+		for(int i = 0; i < snakeParts; i++, yPos +=10){
+			Circle c = new Circle(xPos, yPos, 0);
+			c.setFill(Color.GREEN);
+			pane.getChildren().add(c);
+		}
 		
 		
 		Button steuern=new Button();
