@@ -23,6 +23,7 @@ public class Menue extends Application {
         btn.setTranslateY(-30);
         btn.setMinWidth(100);
         btn1.setMinWidth(100);
+        primaryStage.setResizable(false);
         
        
         
@@ -31,7 +32,7 @@ public class Menue extends Application {
         btn.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
             public void handle(ActionEvent event) {
-                Feld f = new Feld();
+                //Feld f = new Feld();
                // f.main(null);
             }
         });
