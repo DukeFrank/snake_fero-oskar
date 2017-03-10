@@ -5,12 +5,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
-public class food extends Application{
+public class Food extends Application{
 	
 	
 	private ImageView cherry;
 	
-	public food(){
+	public Food(){
 	Image img = new Image("cherry.gif");
 	cherry.setImage(img);
 	}

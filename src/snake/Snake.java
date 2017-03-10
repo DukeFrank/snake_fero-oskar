@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-public class snake {
+public class Snake {
 	
 	//snake-body
 	private Circle snakeBody;
@@ -13,7 +13,7 @@ public class snake {
 	
 	private ArrayList<Circle>snakeParts;
 	
-	public snake(){
+	public Snake(){
 		snakeParts = new ArrayList<Circle>();
 		snakeBody = new Circle(40,30,8);
 		snakeBody.setFill(Color.GREEN);
