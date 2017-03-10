@@ -8,4 +8,5 @@ public class snake {
 	private boolean down;
 	
 	private int length;
+	
 }
