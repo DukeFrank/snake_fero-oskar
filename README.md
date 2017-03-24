@@ -3,4 +3,5 @@ Snake-Projekt für pos1
 
 
 Ziel bis nächste Woche:
-To-Do:s
+To-Do:
+Eventhandling von der Schlange(Rechts links abbiegen)
