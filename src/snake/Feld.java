@@ -3,12 +3,11 @@ package snake;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-//import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class Feld extends Application {
@@ -18,8 +17,8 @@ public class Feld extends Application {
 	private boolean Down = false;
 	private double locationX = 0;
 	private double locationY = 0;
-	private double snakeX = 0;
-	private double snakeY = 0;
+	private double snakeX = 300;
+	private double snakeY = 300;
 	
 	
 
@@ -37,21 +36,27 @@ public class Feld extends Application {
 	}
 	
 	public Pane game(){
-		Pane pane = new Pane();
+		Pane pane = new GridPane();
 		int snakeParts = 3;
-		int xPos = 0;
-		int yPos = 0;
+		double xPos = snakeX;
+		double yPos = snakeY;
+		for(int i = 0; i < snakeParts; i++, yPos +=15){
+			 Circle c = new Circle();
+		        c.setTranslateX(xPos);
+		        c.setTranslateY(yPos);
+		        c.setRadius(10);
+		        c.setFill(Color.GREEN);
+		        
+		        
+		        pane.getChildren().add(c);
+		}
 		
-		for(int i = 0; i < snakeParts; i++, yPos +=10){
-			Circle c = new Circle(xPos, yPos, 0);
-			c.setFill(Color.GREEN);
-			pane.getChildren().add(c);
+		if(Up = true){
+			snakeY -= 10;
 		}
 		
 		
 		Button steuern=new Button();
-        steuern.relocate(-100, 200);
-        pane.getChildren().add(steuern);
         steuern.setOnKeyPressed(e->{
             if(e.getCode()==KeyCode.RIGHT){
                 Right=true;
