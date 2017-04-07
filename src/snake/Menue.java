@@ -20,9 +20,9 @@ public class Menue extends Application {
         btn.setText("Start");
         Button btn1 = new Button();
         btn1.setText("Exit");
-        btn.setTranslateY(-30);
-        btn.setMinWidth(100);
-        btn1.setMinWidth(100);
+        btn.setTranslateY(-35);
+        btn.setMinWidth(180);
+        btn1.setMinWidth(180);
         primaryStage.setResizable(false);
         
        
@@ -32,8 +32,8 @@ public class Menue extends Application {
         btn.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
             public void handle(ActionEvent event) {
-                //Feld f = new Feld();
-               // f.main(null);
+                Feld f = new Feld();
+                f.game();
             }
         });
         
