@@ -63,7 +63,7 @@ public class Feld extends Application {
 		//Button wird leider angezeigt
 		final Button steuern=new Button();
 		pane.getChildren().add(steuern);
-		
+		steuern.setTranslateX(5000);
 		
 		
         steuern.setOnKeyPressed(e->	{
