@@ -1,5 +1,7 @@
 package snake;
 
+import java.util.Random;
+
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -50,6 +52,18 @@ public class Feld extends Application {
 		        
 		}
 		pane.getChildren().add(c);
+		
+		//food wird gezeichnet
+		Random r = new Random();
+		int randomX = r.nextInt(500);
+		int randomY = r.nextInt(500);
+		Circle food = new Circle();
+		food.setFill(Color.RED);
+		food.setRadius(10);
+		food.setTranslateX(randomX);
+		food.setTranslateY(randomY);
+		
+		pane.getChildren().add(food);
 //		c.setFill(Color.GREEN);
 //		pane.getChildren().add(c);
 		
@@ -113,6 +127,9 @@ public class Feld extends Application {
                 if(Down){
                     snakeY+=1.2;
                     c.setTranslateY(snakeY);
+                }
+                if(snakeY == randomY && snakeX == randomX){
+                	food.setVisible(false);
                 }
             }
             
