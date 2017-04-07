@@ -36,7 +36,6 @@ public class Menue extends Application {
                 try {
                 	primaryStage.setX(0);
                 	primaryStage.setY(0);
-                	
 					f.start(primaryStage);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
