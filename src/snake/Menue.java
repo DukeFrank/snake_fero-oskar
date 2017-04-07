@@ -33,7 +33,7 @@ public class Menue extends Application {
         	@Override
             public void handle(ActionEvent event) {
                 Feld f = new Feld();
-                f.game();
+                
             }
         });
         
