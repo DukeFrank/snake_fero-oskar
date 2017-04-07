@@ -16,8 +16,6 @@ public class Feld extends Application {
 	private boolean Left = false;
 	private boolean Up = false;
 	private boolean Down = false;
-	private double locationX = 0;
-	private double locationY = 0;
 	private double snakeX = 300;
 	private double snakeY = 300;
 	
@@ -25,8 +23,7 @@ public class Feld extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
-			Pane pane=new Pane();
+		// TODO Auto-generated method stub			
 	        Scene scene=new Scene(game(),800,600);
 	        primaryStage.setScene(scene);
 	        primaryStage.setTitle("Snake");
@@ -38,11 +35,11 @@ public class Feld extends Application {
 	
 	public Pane game(){
 		Pane pane = new Pane();
-		int snakeParts = 3;
+		int snakeParts = 0;
 		double xPos = snakeX;
 		double yPos = snakeY;
 		Circle c = new Circle(400,300,8);
-		for(int i = 0; i < snakeParts; i++, yPos +=15){
+		for(int i = -1; i < snakeParts; i++, yPos +=15){
 			 
 		        c.setTranslateX(xPos);
 		        c.setTranslateY(yPos);
@@ -56,31 +53,31 @@ public class Feld extends Application {
 //		c.setFill(Color.GREEN);
 //		pane.getChildren().add(c);
 		
+
+		
 		if(Up = true){
 			snakeY -= 10;
 		}
 		
 		
-		
+		//Button wird leider angezeigt
 		final Button steuern=new Button();
 		pane.getChildren().add(steuern);
+		
+		
 		
         steuern.setOnKeyPressed(e->	{
             if(e.getCode()==KeyCode.RIGHT){
                 Right=true;
                 Left=false;
                 Up=false;
-                Down=false;
-                locationX=snakeX;
-                locationY=snakeY;
+                Down=false;              
             }
             if(e.getCode()==KeyCode.LEFT){
                 Left=true;
                 Right=false;
                 Down=false;
                 Up=false;
-                locationX=snakeX;
-                locationY=snakeY;
             }
             if(e.getCode()==KeyCode.UP){
                 Left=false;
@@ -95,26 +92,24 @@ public class Feld extends Application {
                 Up=false;
             }
         });
+        
         AnimationTimer an=new AnimationTimer(){
             public void handle(long arg0) {
                 if(Right){
                     snakeX+=1.2;
                     c.setTranslateX(snakeX);
-                   
-                
                 }
+                
                 if(Left){
                     snakeX-=1.2;
                     c.setTranslateX(snakeX);
-                 
-                
                 }
+                
                 if(Up){
                     snakeY-=1.2;
                     c.setTranslateY(snakeY);
-                
-                
                 }
+                
                 if(Down){
                     snakeY+=1.2;
                     c.setTranslateY(snakeY);
@@ -122,15 +117,15 @@ public class Feld extends Application {
             }
             
         };
+        
         an.start();
 
-
-		return pane;
+		return pane;	
 		
 	}
 	
 	public static void main(String[] args) {
         launch(args);
     }
-
+	
 }
