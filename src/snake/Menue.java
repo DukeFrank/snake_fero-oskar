@@ -33,6 +33,15 @@ public class Menue extends Application {
         	@Override
             public void handle(ActionEvent event) {
                 Feld f = new Feld();
+                try {
+                	primaryStage.setX(0);
+                	primaryStage.setY(0);
+                	
+					f.start(primaryStage);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
                 
             }
         });
