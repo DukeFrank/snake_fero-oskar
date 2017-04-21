@@ -6,6 +6,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -18,8 +19,6 @@ public class Feld extends Application {
 	private boolean Left = false;
 	private boolean Up = false;
 	private boolean Down = false;
-	private double snakeX = 300;
-	private double snakeY = 300;
 	
 	
 
@@ -37,26 +36,19 @@ public class Feld extends Application {
 	
 	public Pane game(){
 		Pane pane = new Pane();
-		int snakeParts = 0;
-		double xPos = snakeX;
-		double yPos = snakeY;
-		Circle c = new Circle(400,300,8);
-		for(int i = -1; i < snakeParts; i++, yPos +=15){
-			 
-		        c.setTranslateX(xPos);
-		        c.setTranslateY(yPos);
-		        c.setRadius(10);
-		        c.setFill(Color.GREEN);
-		        
-		        
+		
+		int snakeParts = 1;
+		
+		for(int i = -1; i < snakeParts; i++){
+			 SnakeSegment s = new SnakeSegment();       
 		        
 		}
-		pane.getChildren().add(c);
+		
 		
 		//food wird gezeichnet
 		Random r = new Random();
-		int randomX = r.nextInt(500);
-		int randomY = r.nextInt(500);
+		int randomX = r.nextInt(800);
+		int randomY = r.nextInt(800);
 		Circle food = new Circle();
 		food.setFill(Color.RED);
 		food.setRadius(10);
@@ -68,11 +60,7 @@ public class Feld extends Application {
 //		pane.getChildren().add(c);
 		
 
-		
-		if(Up = true){
-			snakeY -= 10;
-		}
-		
+				
 		
 		//Button wird leider angezeigt
 		final Button steuern=new Button();
@@ -110,26 +98,23 @@ public class Feld extends Application {
         AnimationTimer an=new AnimationTimer(){
             public void handle(long arg0) {
                 if(Right){
-                    snakeX+=1.2;
-                    c.setTranslateX(snakeX);
+                    //snakeX+=1.2;
+                    //c.setTranslateX(snakeX);
                 }
                 
                 if(Left){
-                    snakeX-=1.2;
-                    c.setTranslateX(snakeX);
+                    //snakeX-=1.2;
+                    //c.setTranslateX(snakeX);
                 }
                 
                 if(Up){
-                    snakeY-=1.2;
-                    c.setTranslateY(snakeY);
+                   // snakeY-=1.2;
+                    //c.setTranslateY(snakeY);
                 }
                 
                 if(Down){
-                    snakeY+=1.2;
-                    c.setTranslateY(snakeY);
-                }
-                if(snakeY == randomY && snakeX == randomX){
-                	food.setVisible(false);
+                    //snakeY+=1.2;
+                    //c.setTranslateY(snakeY);
                 }
             }
             
