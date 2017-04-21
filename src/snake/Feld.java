@@ -1,10 +1,13 @@
 package snake;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -15,10 +18,7 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class Feld extends Application {
-	private boolean Right = false;
-	private boolean Left = false;
-	private boolean Up = false;
-	private boolean Down = false;
+
 	
 	
 
@@ -36,13 +36,19 @@ public class Feld extends Application {
 	
 	public Pane game(){
 		Pane pane = new Pane();
+		ArrayList<SnakeSegment>snakeParts = new ArrayList<>();
+Coordinates p = new Coordinates(100, 100);
+		SnakeHead s = new SnakeHead(p, pane);
+		snakeParts.add(s);
 		
-		int snakeParts = 1;
-		
-		for(int i = -1; i < snakeParts; i++){
-			 SnakeSegment s = new SnakeSegment();       
-		        
+		SnakeSegment prev = s;
+
+		for(int i = 0; i < 20; ++i) {
+		SnakeSegment curr = new SnakeSegment(p, prev, pane);
+		snakeParts.add(curr);
+		prev = curr;
 		}
+	
 		
 		
 		//food wird gezeichnet
@@ -68,55 +74,16 @@ public class Feld extends Application {
 		steuern.setTranslateX(5000);
 		
 		
-        steuern.setOnKeyPressed(e->	{
-            if(e.getCode()==KeyCode.RIGHT){
-                Right=true;
-                Left=false;
-                Up=false;
-                Down=false;              
-            }
-            if(e.getCode()==KeyCode.LEFT){
-                Left=true;
-                Right=false;
-                Down=false;
-                Up=false;
-            }
-            if(e.getCode()==KeyCode.UP){
-                Left=false;
-                Right=false;
-                Up=true;
-                Down=false;
-            }
-            if(e.getCode()==KeyCode.DOWN){
-                Right=false;
-                Left=false;
-                Down=true;
-                Up=false;
-            }
-        });
+		s.registerControls(steuern);
         
         AnimationTimer an=new AnimationTimer(){
             public void handle(long arg0) {
-                if(Right){
-                    //snakeX+=1.2;
-                    //c.setTranslateX(snakeX);
-                }
-                
-                if(Left){
-                    //snakeX-=1.2;
-                    //c.setTranslateX(snakeX);
-                }
-                
-                if(Up){
-                   // snakeY-=1.2;
-                    //c.setTranslateY(snakeY);
-                }
-                
-                if(Down){
-                    //snakeY+=1.2;
-                    //c.setTranslateY(snakeY);
-                }
-            }
+            	for (SnakeSegment s : snakeParts) {
+                  	s.update();
+                	s.render();
+      				
+				}
+             }
             
         };
         
