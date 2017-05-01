@@ -16,24 +16,32 @@ public class SnakeHead extends SnakeSegment {
 	void registerControls(Button steuern) {
         steuern.setOnKeyPressed(e->	{
             if(e.getCode()==KeyCode.RIGHT){
+            	if(Left == true)
+            		return;
                 Right=true;
                 Left=false;
                 Up=false;
                 Down=false;              
             }
             if(e.getCode()==KeyCode.LEFT){
+            	if(Right == true)
+            		return;
                 Left=true;
                 Right=false;
                 Down=false;
                 Up=false;
             }
             if(e.getCode()==KeyCode.UP){
+            	if(Down == true)
+            		return;
                 Left=false;
                 Right=false;
                 Up=true;
                 Down=false;
             }
             if(e.getCode()==KeyCode.DOWN){
+            	if(Up == true)
+            		return;
                 Right=false;
                 Left=false;
                 Down=true;
@@ -47,20 +55,31 @@ public class SnakeHead extends SnakeSegment {
 		int snakeX = position.getSnakeX();
 		int snakeY = position.getSnakeY();
 		
+		if(snakeX >= 400){
+			snakeX = -400;
+		}	else if(snakeX <= -400){
+			snakeX = 400;
+		}	else if(snakeY >= 300) {
+			snakeY = -300;
+		}	else if(snakeY <= -300){
+			snakeY = 300;
+		}
+		
+		
         if(Right){
-            snakeX+=1.2;
+            snakeX+=2;
         }
         
         if(Left){
-            snakeX-=1.2;
+            snakeX-=2;
         }
         
         if(Up){
-            snakeY-=1.2;
+            snakeY-=2;
         }
         
         if(Down){
-            snakeY+=1.2;
+            snakeY+=2;
         }
 
         position = new Coordinates(snakeX, snakeY);

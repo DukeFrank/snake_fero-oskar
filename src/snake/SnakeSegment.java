@@ -26,7 +26,7 @@ public class SnakeSegment {
 	}
 
 	public void update(){
-		if(alter > 60){
+		if(alter > 10){
 			//vordermann hinterherlaufen
 
 				position = vordermann.c.getLast();
@@ -42,7 +42,7 @@ public class SnakeSegment {
 
 	protected void rememberPosition() {
 		c.addFirst(position);
-		if(c.size() > 30){
+		if(c.size() > 10){
 			c.removeLast();
 		}
 	}
