@@ -1,3 +1,4 @@
+
 package snake;
 
 import java.util.ArrayList;
@@ -32,56 +33,60 @@ public class Feld extends Application {
 	        primaryStage.setResizable(false);
 	        
 	        
+	        
 	}
 	
 	public Pane game(){
 		Pane pane = new Pane();
 		ArrayList<SnakeSegment>snakeParts = new ArrayList<>();
-Coordinates p = new Coordinates(100, 100);
-		SnakeHead s = new SnakeHead(p, pane);
-		snakeParts.add(s);
+		Coordinates p = new Coordinates(100, 100);
+		SnakeHead snakeHead = new SnakeHead(p, pane);
+		snakeParts.add(snakeHead);
 		
-		SnakeSegment prev = s;
+		SnakeSegment prev = snakeHead;
 
 		for(int i = 0; i < 20; ++i) {
-		SnakeSegment curr = new SnakeSegment(p, prev, pane);
-		snakeParts.add(curr);
-		prev = curr;
+			SnakeSegment curr = new SnakeSegment(p, prev, pane);
+			snakeParts.add(curr);
+			prev = curr;
 		}
 	
 		
 		
 		//food wird gezeichnet
 		Random r = new Random();
-		int randomX = r.nextInt(800);
-		int randomY = r.nextInt(800);
-		Circle food = new Circle();
-		food.setFill(Color.RED);
-		food.setRadius(10);
-		food.setTranslateX(randomX);
-		food.setTranslateY(randomY);
+		int randomX = r.nextInt(395);
+		int randomY = r.nextInt(295);
+		Coordinates foodPos = new Coordinates(randomX, randomY);
+		Food food = new Food(foodPos, pane);
 		
-		pane.getChildren().add(food);
 //		c.setFill(Color.GREEN);
 //		pane.getChildren().add(c);
 		
 
 				
 		
-		//Button wird leider angezeigt
 		final Button steuern=new Button();
 		pane.getChildren().add(steuern);
 		steuern.setTranslateX(5000);
 		
 		
-		s.registerControls(steuern);
+		snakeHead.registerControls(steuern);
         
         AnimationTimer an=new AnimationTimer(){
             public void handle(long arg0) {
+            	// alles updaten
             	for (SnakeSegment s : snakeParts) {
                   	s.update();
+				}
+            	
+                if(snakeHead.getCircle().intersects(food.getFood())){
+                	//SnakeSegment sNew = new SnakeSegment(position, vordermann, pane);
+                }
+            	
+            	// alles rendern
+            	for (SnakeSegment s : snakeParts) {
                 	s.render();
-      				
 				}
              }
             

@@ -1,16 +1,41 @@
 package snake;
 
+import javafx.geometry.Bounds;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 public class Food{
-	private Circle food;
 	
-	public Food(int x, int y){
-		food.setTranslateX(x);
-		food.setTranslateY(y);
-		food.setFill(Color.RED);
-		food.setRadius(10);
+	public Circle food;
+	protected Coordinates position;
+	
+	public Food(Coordinates position, Pane pane){
+		this.position = position;
+		food = new Circle(400,300,8);
+		food.setRadius(8);
+		food.setFill(Color.CORAL);
+		pane.getChildren().add(food);
+		
+		
+				
+	}
+
+	public Coordinates getPosition() {
+		return position;
+	}
+
+	public void setPosition(Coordinates position) {
+		this.position = position;
+	}
+
+	public Bounds getFood() {
+		return food.getBoundsInLocal();
 	}
 	
+	
+	
+	
+	
 }
+ 

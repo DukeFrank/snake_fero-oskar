@@ -55,14 +55,14 @@ public class SnakeHead extends SnakeSegment {
 		int snakeX = position.getSnakeX();
 		int snakeY = position.getSnakeY();
 		
-		if(snakeX >= 400){
-			snakeX = -400;
-		}	else if(snakeX <= -400){
-			snakeX = 400;
-		}	else if(snakeY >= 300) {
-			snakeY = -300;
-		}	else if(snakeY <= -300){
-			snakeY = 300;
+		if(snakeX >= 395){
+			snakeX = -395;
+		}	else if(snakeX <= -395){
+			snakeX = 395;
+		}	else if(snakeY >= 295) {
+			snakeY = -295;
+		}	else if(snakeY <= -295){
+			snakeY = 295;
 		}
 		
 		
