@@ -16,19 +16,29 @@ public class Menue extends Application {
     @Override
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Snake");
-        Button btn = new Button();
-        btn.setText("Start");
-        Button btn1 = new Button();
-        btn1.setText("Exit");
-        btn.setTranslateY(-35);
-        btn.setMinWidth(180);
-        btn1.setMinWidth(180);
         primaryStage.setResizable(false);
         
+        //Button
+        Button btn = new Button();
+        btn.setText("START");
+        btn.setTranslateY(-70);
+        btn.setMinWidth(180);
+        Button btn1 = new Button();
+        btn1.setText("EXIT");
+        btn1.setMinWidth(180);
+        Button btn2 = new Button();
+        btn2.setText("CREDITS");
+        btn2.setTranslateY(-35);
+        btn2.setMinWidth(180);
+        //design
+        btn.setStyle("-fx-font: 15 arial; -fx-base: #36AFFF;-fx-text-fill: #FFFFFF;");
+        btn1.setStyle("-fx-font: 15 arial; -fx-base: #C60000;-fx-text-fill: #FFFFFF;");
+        btn2.setStyle("-fx-font: 15 arial; -fx-base: #36AFFF;-fx-text-fill: #FFFFFF;");
+       
        
         
-      
-//        Aktion für den Button setzen 
+        
+//        action for a Button 
         btn.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
             public void handle(ActionEvent event) {
@@ -38,27 +48,46 @@ public class Menue extends Application {
                 	primaryStage.setY(0);
 					f.start(primaryStage);
 				} catch (Exception e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
                 
             }
         });
-        
-        
+             
         btn1.setOnAction(new EventHandler<ActionEvent>() {
         	@Override
             public void handle(ActionEvent event) {
-                System.exit(0);
-            }
+                System.exit(0);                
+        	}        	
+        });
+        
+        btn2.setOnAction(new EventHandler<ActionEvent>(){
+
+			@Override
+			public void handle(ActionEvent event) {
+				Credits c = new Credits();
+				try {
+                	primaryStage.setX(0);
+                	primaryStage.setY(0);
+					c.start(primaryStage);
+				} catch (Exception e) {
+					e.printStackTrace();
+					}
+				}
+				
+			
+        	
         });
         
         
         
         StackPane root = new StackPane();
+        root.setStyle("-fx-background-color: #001E32");
         root.getChildren().add(btn);
         root.getChildren().add(btn1);
+        root.getChildren().add(btn2);
         primaryStage.setScene(new Scene(root, 300, 250));
         primaryStage.show();
+        
     }
 }

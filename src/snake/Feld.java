@@ -2,30 +2,22 @@
 package snake;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class Feld extends Application {
 
 	
-	
+	private SnakeSegment prev;
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub			
+	public void start(Stage primaryStage) throws Exception {		
 	        Scene scene=new Scene(game(),800,600);
 	        primaryStage.setScene(scene);
 	        primaryStage.setTitle("Snake");
@@ -36,34 +28,29 @@ public class Feld extends Application {
 	        
 	}
 	
-	public Pane game(){
+	public  Pane game(){
 		Pane pane = new Pane();
 		ArrayList<SnakeSegment>snakeParts = new ArrayList<>();
 		Coordinates p = new Coordinates(100, 100);
 		SnakeHead snakeHead = new SnakeHead(p, pane);
 		snakeParts.add(snakeHead);
 		
-		SnakeSegment prev = snakeHead;
+		prev = snakeHead;
 
-		for(int i = 0; i < 20; ++i) {
+		for(int i = 0; i < 3; ++i) {
 			SnakeSegment curr = new SnakeSegment(p, prev, pane);
 			snakeParts.add(curr);
 			prev = curr;
 		}
 	
 		
-		
-		//food wird gezeichnet
+		//create food
 		Random r = new Random();
-		int randomX = r.nextInt(395);
-		int randomY = r.nextInt(295);
+		int randomX = r.nextInt(795);
+		int randomY = r.nextInt(595);
 		Coordinates foodPos = new Coordinates(randomX, randomY);
 		Food food = new Food(foodPos, pane);
 		
-//		c.setFill(Color.GREEN);
-//		pane.getChildren().add(c);
-		
-
 				
 		
 		final Button steuern=new Button();
@@ -75,16 +62,30 @@ public class Feld extends Application {
         
         AnimationTimer an=new AnimationTimer(){
             public void handle(long arg0) {
-            	// alles updaten
+            	// update all
             	for (SnakeSegment s : snakeParts) {
                   	s.update();
 				}
             	
-                if(snakeHead.getCircle().intersects(food.getFood())){
-                	//SnakeSegment sNew = new SnakeSegment(position, vordermann, pane);
-                }
+
+            	if(snakeHead.getCircle().intersects(food.getFood())){
+            		Random r = new Random();
+            		int foodRandomX = r.nextInt(795);
+            		int foodRandomY = r.nextInt(595);
+            		Coordinates newFoodPos = new Coordinates(foodRandomX, foodRandomY);
+            		food.setPosition(newFoodPos);
+            		food.render();
+            		SnakeSegment sNew = new SnakeSegment(prev.getPosition(), prev, pane);
+                	snakeParts.add(sNew);
+                	prev = sNew;
+            	}
+            	for(int i = 4; i < snakeParts.size(); ++i){
+            		if(snakeHead.getCircle().intersects(snakeParts.get(i).getCircle())){
+            			System.exit(0);
+            		}
+            	}
             	
-            	// alles rendern
+            	// render all
             	for (SnakeSegment s : snakeParts) {
                 	s.render();
 				}

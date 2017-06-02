@@ -8,18 +8,16 @@ import javafx.scene.shape.Circle;
 public class Food{
 	
 	public Circle food;
-	protected Coordinates position;
-	
+	private Coordinates position;
 	public Food(Coordinates position, Pane pane){
 		this.position = position;
-		food = new Circle(400,300,8);
+		food = new Circle(position.getSnakeX(),position.getSnakeY(),8);
 		food.setRadius(8);
 		food.setFill(Color.CORAL);
-		pane.getChildren().add(food);
-		
-		
-				
+		pane.getChildren().add(food);						
 	}
+	
+	
 
 	public Coordinates getPosition() {
 		return position;
@@ -34,7 +32,11 @@ public class Food{
 	}
 	
 	
-	
+	public void render(){
+		food.setCenterX(position.getSnakeX());
+		food.setCenterY(position.getSnakeY());
+		
+	}
 	
 	
 }

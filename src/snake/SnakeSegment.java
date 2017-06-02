@@ -27,13 +27,11 @@ public class SnakeSegment {
 	
 	public void update(){
 		if(alter > 10){
-			//vordermann hinterherlaufen
-
-				position = vordermann.c.getLast();
-			
+				//run after 
+				position = vordermann.c.getLast();			
 		}
 		
-		//c befüllen
+		//to fill c
 		
 		rememberPosition();
 		
@@ -48,13 +46,19 @@ public class SnakeSegment {
 	}
 	
 	public void render(){
-		circle.setTranslateX(position.getSnakeX());
-		circle.setTranslateY(position.getSnakeY());
-		
+		circle.setCenterX(position.getSnakeX());
+		circle.setCenterY(position.getSnakeY());
 	}
 
 	public Bounds getCircle() {
 		return circle.getBoundsInLocal();
+	}
+
+	/**
+	 * @return the position
+	 */
+	public Coordinates getPosition() {
+		return position;
 	}
 
 	
