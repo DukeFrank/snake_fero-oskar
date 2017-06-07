@@ -9,9 +9,7 @@ import javafx.stage.Stage;
 public class Credits extends Application{
 
 	@Override
-	public void start(Stage stage) throws Exception {
-		
-		
+	public void start(Stage stage) throws Exception {		
 			
 			Text text = new Text();
 			Text text2 = new Text();
