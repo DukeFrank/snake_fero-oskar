@@ -9,6 +9,7 @@ public class SnakeHead extends SnakeSegment {
 	private boolean Left = false;
 	private boolean Up = false;
 	private boolean Down = false;
+	private int halten = 0;
 	//private long start = 0;
 	public SnakeHead(Coordinates position, Pane pane) {
 		super(position, null, pane);
@@ -22,40 +23,44 @@ public class SnakeHead extends SnakeSegment {
 	void registerControls(Button steuern) {		
 			
 	        steuern.setOnKeyPressed(e->	{
-	            if(e.getCode()==KeyCode.RIGHT){
+	            if(e.getCode()==KeyCode.RIGHT && halten > 10){
 	            	if(Left == true)
 	            		return;
 	                Right=true;
 	                Left=false;
 	                Up=false;
-	                Down=false; 
+	                Down=false;
+	                halten = 0;
 	            }
 	            
-	            if(e.getCode()==KeyCode.LEFT){
+	            if(e.getCode()==KeyCode.LEFT  && halten > 10){
 	            	if(Right == true)
 	            		return;
 	                Left=true;
 	                Right=false;
 	                Down=false;
 	                Up=false;
+	                halten = 0;
 	            }
 	            
-	            if(e.getCode()==KeyCode.UP){
+	            if(e.getCode()==KeyCode.UP && halten > 10){
 	            	if(Down == true)
 	            		return;
 	                Left=false;
 	                Right=false;
 	                Up=true;
-	                Down=false;      
+	                Down=false;
+	                halten = 0;
 	            }
 	            
-	            if(e.getCode()==KeyCode.DOWN){
+	            if(e.getCode()==KeyCode.DOWN && halten > 10){
 	            	if(Up == true)
 	            		return;
 	                Right=false;
 	                Left=false;
 	                Down=true;
-	                Up=false;   
+	                Up=false; 
+	                halten = 0;
 	            }
 	            
 	      });
@@ -63,6 +68,7 @@ public class SnakeHead extends SnakeSegment {
 
 	@Override		
 	public void update() {
+		halten++;	
 		int snakeX = position.getSnakeX();
 		int snakeY = position.getSnakeY();
 		
