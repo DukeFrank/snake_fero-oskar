@@ -10,7 +10,8 @@ import javafx.stage.Stage;
 
 public class Settings extends Application{
 
-	private int colorNR;
+	private static int colorNR;
+	
 	public Settings(){
 		setColorNR(colorNR);
 	}
