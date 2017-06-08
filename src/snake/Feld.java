@@ -14,10 +14,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
-/**
- * @author Frantisek Svoboda, Oskar Eichhorn
- *
- */
 public class Feld extends Application {
 	
 	private SnakeSegment prev;
@@ -111,7 +107,7 @@ public class Feld extends Application {
             	}
             	for(int i = 4; i < snakeParts.size(); ++i){
             		if(snakeHead.getCircle().intersects(snakeParts.get(i).getCircle())){
-            			System.exit(0);
+            			
             		}
             	}
             	
