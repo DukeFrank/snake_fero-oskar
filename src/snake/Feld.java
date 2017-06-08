@@ -7,6 +7,8 @@ import java.util.Random;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -111,7 +113,14 @@ public class Feld extends Application {
             	}
             	for(int i = 4; i < snakeParts.size(); ++i){
             		if(snakeHead.getCircle().intersects(snakeParts.get(i).getCircle())){
-            			System.exit(0);
+            			int score = snakeParts.size()-4;
+            			stop();
+            			Alert alert = new Alert(AlertType.INFORMATION);
+            			alert.setTitle("GAME OVER");
+            			alert.setHeaderText(null);
+            			alert.setContentText("Your SCORE: "+score);
+            			alert.show();
+            			
             		}
             	}
             	
