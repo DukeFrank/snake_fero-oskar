@@ -74,8 +74,7 @@ public class Settings extends Application{
 	                    setColorNR(1);     
 	                    Menue m = new Menue();
 		                try {
-		                	primaryStage.setX(0);
-		                	primaryStage.setY(0);
+		                	primaryStage.centerOnScreen();
 							m.start(primaryStage);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -89,8 +88,7 @@ public class Settings extends Application{
 	        		setColorNR(2);  
 	        		Menue m = new Menue();
 	                try {
-	                	primaryStage.setX(0);
-	                	primaryStage.setY(0);
+	                	primaryStage.centerOnScreen();
 						m.start(primaryStage);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -106,8 +104,7 @@ public class Settings extends Application{
 					setColorNR(3);
 					Menue m = new Menue();
 	                try {
-	                	primaryStage.setX(0);
-	                	primaryStage.setY(0);
+	                	primaryStage.centerOnScreen();
 						m.start(primaryStage);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -121,8 +118,7 @@ public class Settings extends Application{
 					setColorNR(4);
 					Menue m = new Menue();
 	                try {
-	                	primaryStage.setX(0);
-	                	primaryStage.setY(0);
+	                	primaryStage.centerOnScreen();
 						m.start(primaryStage);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -136,8 +132,7 @@ public class Settings extends Application{
 					setColorNR(5);
 					Menue m = new Menue();
 	                try {
-	                	primaryStage.setX(0);
-	                	primaryStage.setY(0);
+	                	primaryStage.centerOnScreen();
 						m.start(primaryStage);
 					} catch (Exception e) {
 						e.printStackTrace();

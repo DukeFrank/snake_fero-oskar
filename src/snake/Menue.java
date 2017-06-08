@@ -50,8 +50,7 @@ public class Menue extends Application {
             public void handle(ActionEvent event) {
                 Feld f = new Feld();
                 try {
-                	primaryStage.setX(0);
-                	primaryStage.setY(0);
+                	primaryStage.centerOnScreen();
 					f.start(primaryStage);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -73,8 +72,7 @@ public class Menue extends Application {
 			public void handle(ActionEvent event) {
 				Credits c = new Credits();
 				try {
-                	primaryStage.setX(0);
-                	primaryStage.setY(0);
+					primaryStage.centerOnScreen();               	
 					c.start(primaryStage);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -91,8 +89,7 @@ public class Menue extends Application {
 				// TODO Auto-generated method stub
 				Settings s = new Settings();
 				try {
-                	primaryStage.setX(0);
-                	primaryStage.setY(0);
+                	primaryStage.centerOnScreen();
 					s.start(primaryStage);
 				} catch (Exception e) {
 					e.printStackTrace();
