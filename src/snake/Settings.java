@@ -16,7 +16,7 @@ public class Settings extends Application{
 		 primaryStage.setTitle("Color Picker");
 	     primaryStage.setResizable(false);
 	     
-	   //Button
+	   //Buttons
 	        Button btn = new Button();
 	        btn.setText("Blue");
 	        btn.setTranslateY(-70);
