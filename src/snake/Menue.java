@@ -22,7 +22,7 @@ public class Menue extends Application {
         //Button
         Button btn = new Button();
         btn.setText("START");
-        btn.setTranslateY(-70);
+        btn.setTranslateY(2-70);
         btn.setMinWidth(180);
         Button btn1 = new Button();
         btn1.setText("EXIT");

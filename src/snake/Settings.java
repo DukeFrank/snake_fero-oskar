@@ -121,7 +121,7 @@ public class Settings extends Application{
 					setColorNR(4);
 					Menue m = new Menue();
 	                try {
-	                	primaryStage.setX(1000);
+	                	primaryStage.setX(0);
 	                	primaryStage.setY(0);
 						m.start(primaryStage);
 					} catch (Exception e) {
