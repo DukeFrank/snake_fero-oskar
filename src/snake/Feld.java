@@ -14,6 +14,10 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
+/**
+ * @author Frantisek Svoboda, Oskar Eichhorn
+ *
+ */
 public class Feld extends Application {
 	
 	private SnakeSegment prev;
