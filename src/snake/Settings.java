@@ -10,6 +10,27 @@ import javafx.stage.Stage;
 
 public class Settings extends Application{
 
+	private int colorNR;
+	public Settings(){
+		setColorNR(colorNR);
+	}
+	
+	/**
+	 * @return the colorNR
+	 */
+	public int getColorNR() {
+		return colorNR;
+	}
+
+	/**
+	 * @param colorNR the colorNR to set
+	 */
+	public void setColorNR(int colorNR) {
+		this.colorNR= colorNR;
+	}
+	
+	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
@@ -36,6 +57,10 @@ public class Settings extends Application{
 	        btn4.setText("Gelb");
 	        btn4.setTranslateY(+70);
 	        btn4.setMinWidth(180);
+	        Button btn5 = new Button();
+	        btn5.setText("Back");
+	        btn5.setTranslateY(+105);
+	        btn5.setMinWidth(180);
 	        
 	        //design
 	        btn.setStyle("-fx-font: 15 arial; -fx-base: #1192fc;-fx-text-fill: #ffffff;");
@@ -48,14 +73,14 @@ public class Settings extends Application{
 	        btn.setOnAction(new EventHandler<ActionEvent>() {
 	        	@Override
 	            public void handle(ActionEvent event) {
-	                             
+	                    setColorNR(1);        
 	        	}        	
 	        });
 	        
 	        btn1.setOnAction(new EventHandler<ActionEvent>() {
 	        	@Override
 	            public void handle(ActionEvent event) {
-	                             
+	        		setColorNR(2);          
 	        	}        	
 	        });
 	        
@@ -64,20 +89,35 @@ public class Settings extends Application{
 	        btn2.setOnAction(new EventHandler<ActionEvent>(){
 				@Override
 				public void handle(ActionEvent event) {
-					
+					setColorNR(3);
 				}
 	        });
 	            
 	        btn3.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
-					
+					setColorNR(4);
 				}
 			});
 	        
 	        btn4.setOnAction(new EventHandler<ActionEvent>() {
 				@Override
 				public void handle(ActionEvent event) {
+					setColorNR(5);
+				}
+			});
+	        
+	        btn5.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					Menue m = new Menue();
+	                try {
+	                	primaryStage.setX(0);
+	                	primaryStage.setY(0);
+						m.start(primaryStage);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 					
 				}
 			});
@@ -89,6 +129,7 @@ public class Settings extends Application{
 	     root.getChildren().add(btn2);
 	     root.getChildren().add(btn3);
 	     root.getChildren().add(btn4);
+	     root.getChildren().add(btn5);
 	     primaryStage.setScene(new Scene(root, 300, 250));
 	     primaryStage.show();
 	}

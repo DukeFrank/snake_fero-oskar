@@ -20,8 +20,19 @@ public class SnakeSegment {
 		
 		circle = new Circle(400,300,10);
 		pane.getChildren().add(circle);
-		circle.setFill(Color.GREEN);
+		Settings s = new Settings();
 		
+		if(s.getColorNR()==1){
+			circle.setFill(Color.BLUE);
+		}else if(s.getColorNR()==2){
+			circle.setFill(Color.RED);
+		}else if(s.getColorNR()==3){
+			circle.setFill(Color.GREEN);
+		}else if(s.getColorNR()==4){
+			circle.setFill(Color.BLACK);
+		}else if(s.getColorNR()==5){
+			circle.setFill(Color.YELLOW);
+		}
 	}
 	
 	public void update(){
