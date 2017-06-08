@@ -1,6 +1,7 @@
 
 package snake;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 import javafx.animation.AnimationTimer;
@@ -8,6 +9,8 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class Feld extends Application {
@@ -35,6 +38,9 @@ public class Feld extends Application {
 		snakeParts.add(snakeHead);
 		
 		prev = snakeHead;
+		
+
+		
 
 		for(int i = 0; i < 3; ++i) {
 			SnakeSegment curr = new SnakeSegment(p, prev, pane);
@@ -68,6 +74,9 @@ public class Feld extends Application {
             	
 
             	if(snakeHead.getCircle().intersects(food.getFood())){
+            		Media eat = new Media(new File("Pickup_00.mp3").toURI().toString());
+            		MediaPlayer mediaPlayer = new MediaPlayer(eat);
+            		mediaPlayer.play();
             		Random r = new Random();
             		int foodRandomX = r.nextInt(795);
             		int foodRandomY = r.nextInt(595);
