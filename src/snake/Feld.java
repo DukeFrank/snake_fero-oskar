@@ -8,6 +8,7 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
 public class Feld extends Application {
 	
 	private SnakeSegment prev;
+	
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {		
@@ -32,6 +34,14 @@ public class Feld extends Application {
 	
 	public  Pane game(){
 		Pane pane = new Pane();
+		
+		pane.setStyle(" -fx-background-image: url('RockBG.png'); ");
+		pane.setStyle(" -fx-background-repeat: repeat-y repeat-x; ");
+		pane.setStyle(" -fx-background-position: center center; ");	  
+			     
+			   
+			
+		
 		ArrayList<SnakeSegment>snakeParts = new ArrayList<>();
 		Coordinates p = new Coordinates(100, 100);
 		SnakeHead snakeHead = new SnakeHead(p, pane);
@@ -43,7 +53,10 @@ public class Feld extends Application {
 		MediaPlayer mediaPlayerGame = new MediaPlayer(gameMusic);
 		mediaPlayerGame.setVolume(0.5);
 		mediaPlayerGame.setAutoPlay(true);
-
+		
+		Label scoreTable = new Label();
+		
+		
 		for(int i = 0; i < 3; ++i) {
 			SnakeSegment curr = new SnakeSegment(p, prev, pane);
 			snakeParts.add(curr);
@@ -62,6 +75,7 @@ public class Feld extends Application {
 		
 		final Button steuern=new Button();
 		pane.getChildren().add(steuern);
+		pane.getChildren().add(scoreTable);
 		steuern.setTranslateX(5000);
 		
 		
@@ -101,6 +115,8 @@ public class Feld extends Application {
             	for (SnakeSegment s : snakeParts) {
                 	s.render();
 				}
+            	int score = snakeParts.size()-4;
+            	scoreTable.setText("  SCORE: "+score);
              }
             
         };
