@@ -44,14 +44,14 @@ public class Settings extends Application{
 	        btn.setTranslateY(-70);
 	        btn.setMinWidth(180);
 	        Button btn1 = new Button();
-	        btn1.setText("Black");
+	        btn1.setText("Red");
 	        btn1.setTranslateY(+35);
 	        btn1.setMinWidth(180);
 	        Button btn2 = new Button();
 	        btn2.setText("Green");	        
 	        btn2.setMinWidth(180);
 	        Button btn3 = new Button();
-	        btn3.setText("Red");
+	        btn3.setText("Black");
 	        btn3.setTranslateY(-35);
 	        btn3.setMinWidth(180);
 	        Button btn4 = new Button();
@@ -59,29 +59,42 @@ public class Settings extends Application{
 	        btn4.setTranslateY(+70);
 	        btn4.setMinWidth(180);
 	        Button btn5 = new Button();
-	        btn5.setText("Back");
-	        btn5.setTranslateY(+105);
-	        btn5.setMinWidth(180);
 	        
 	        //design
 	        btn.setStyle("-fx-font: 15 arial; -fx-base: #1192fc;-fx-text-fill: #ffffff;");
-	        btn1.setStyle("-fx-font: 15 arial; -fx-base: #000000;-fx-text-fill: #ffffff;");
+	        btn1.setStyle("-fx-font: 15 arial; -fx-base: #e02104;-fx-text-fill: #ffffff;");
 	        btn2.setStyle("-fx-font: 15 arial; -fx-base: #0cb700;-fx-text-fill: #ffffff;");
-	        btn3.setStyle("-fx-font: 15 arial; -fx-base: #e02104;-fx-text-fill: #ffffff;");
+	        btn3.setStyle("-fx-font: 15 arial; -fx-base: #000000;-fx-text-fill: #ffffff;");
 	        btn4.setStyle("-fx-font: 15 arial; -fx-base: #ffe438;-fx-text-fill: #ffffff;");
 	        
 	        
 	        btn.setOnAction(new EventHandler<ActionEvent>() {
 	        	@Override
 	            public void handle(ActionEvent event) {
-	                    setColorNR(1);        
+	                    setColorNR(1);     
+	                    Menue m = new Menue();
+		                try {
+		                	primaryStage.setX(0);
+		                	primaryStage.setY(0);
+							m.start(primaryStage);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
 	        	}        	
 	        });
 	        
 	        btn1.setOnAction(new EventHandler<ActionEvent>() {
 	        	@Override
 	            public void handle(ActionEvent event) {
-	        		setColorNR(2);          
+	        		setColorNR(2);  
+	        		Menue m = new Menue();
+	                try {
+	                	primaryStage.setX(0);
+	                	primaryStage.setY(0);
+						m.start(primaryStage);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 	        	}        	
 	        });
 	        
@@ -91,26 +104,6 @@ public class Settings extends Application{
 				@Override
 				public void handle(ActionEvent event) {
 					setColorNR(3);
-				}
-	        });
-	            
-	        btn3.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent event) {
-					setColorNR(4);
-				}
-			});
-	        
-	        btn4.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent event) {
-					setColorNR(5);
-				}
-			});
-	        
-	        btn5.setOnAction(new EventHandler<ActionEvent>() {
-				@Override
-				public void handle(ActionEvent event) {
 					Menue m = new Menue();
 	                try {
 	                	primaryStage.setX(0);
@@ -119,9 +112,40 @@ public class Settings extends Application{
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-					
+				}
+	        });
+	            
+	        btn3.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					setColorNR(4);
+					Menue m = new Menue();
+	                try {
+	                	primaryStage.setX(1000);
+	                	primaryStage.setY(0);
+						m.start(primaryStage);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
 			});
+	        
+	        btn4.setOnAction(new EventHandler<ActionEvent>() {
+				@Override
+				public void handle(ActionEvent event) {
+					setColorNR(5);
+					Menue m = new Menue();
+	                try {
+	                	primaryStage.setX(0);
+	                	primaryStage.setY(0);
+						m.start(primaryStage);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+	        
+	        
 	     
 	     StackPane root = new StackPane();
 	     root.setStyle("-fx-background-color: #001E32");
@@ -130,7 +154,6 @@ public class Settings extends Application{
 	     root.getChildren().add(btn2);
 	     root.getChildren().add(btn3);
 	     root.getChildren().add(btn4);
-	     root.getChildren().add(btn5);
 	     primaryStage.setScene(new Scene(root, 300, 250));
 	     primaryStage.show();
 	}
