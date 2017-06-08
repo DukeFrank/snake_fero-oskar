@@ -39,8 +39,10 @@ public class Feld extends Application {
 		
 		prev = snakeHead;
 		
-
-		
+		Media gameMusic = new Media(new File("game_on_0.mp3").toURI().toString());
+		MediaPlayer mediaPlayerGame = new MediaPlayer(gameMusic);
+		mediaPlayerGame.setVolume(0.5);
+		mediaPlayerGame.setAutoPlay(true);
 
 		for(int i = 0; i < 3; ++i) {
 			SnakeSegment curr = new SnakeSegment(p, prev, pane);
@@ -67,6 +69,7 @@ public class Feld extends Application {
         
         AnimationTimer an=new AnimationTimer(){
             public void handle(long arg0) {
+
             	// update all
             	for (SnakeSegment s : snakeParts) {
                   	s.update();
@@ -74,6 +77,7 @@ public class Feld extends Application {
             	
 
             	if(snakeHead.getCircle().intersects(food.getFood())){
+            		
             		Media eat = new Media(new File("Pickup_00.mp3").toURI().toString());
             		MediaPlayer mediaPlayer = new MediaPlayer(eat);
             		mediaPlayer.play();
