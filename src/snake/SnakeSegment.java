@@ -1,7 +1,6 @@
 package snake;
 
 import java.util.LinkedList;
-
 import javafx.geometry.Bounds;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;

@@ -3,7 +3,6 @@ package snake;
 
 import java.util.ArrayList;
 import java.util.Random;
-
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -12,7 +11,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Feld extends Application {
-
 	
 	private SnakeSegment prev;
 
@@ -23,6 +21,7 @@ public class Feld extends Application {
 	        primaryStage.setTitle("Snake");
 	        primaryStage.show();
 	        primaryStage.setResizable(false);
+	       
 	        
 	        
 	        

@@ -19,8 +19,7 @@ public class SnakeHead extends SnakeSegment {
 	 * 
 	 * @param steuern
 	 */
-	void registerControls(Button steuern) {
-		
+	void registerControls(Button steuern) {		
 			
 	        steuern.setOnKeyPressed(e->	{
 	            if(e.getCode()==KeyCode.RIGHT){
@@ -62,9 +61,7 @@ public class SnakeHead extends SnakeSegment {
 	      });
 	};
 
-	@Override
-	
-	
+	@Override		
 	public void update() {
 		int snakeX = position.getSnakeX();
 		int snakeY = position.getSnakeY();
