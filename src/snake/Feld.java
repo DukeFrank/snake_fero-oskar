@@ -117,7 +117,7 @@ public class Feld extends Application {
             			alert.setHeaderText(null);
             			alert.setContentText("Your SCORE: "+score);
             			alert.show();
-
+            			
             			
             		}
             	}
