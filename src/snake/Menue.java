@@ -18,7 +18,6 @@ public class Menue extends Application {
         primaryStage.setTitle("Snake");
         primaryStage.setResizable(false);
         
-        
         //Button
         Button btn = new Button();
         btn.setText("START");
